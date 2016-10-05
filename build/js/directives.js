@@ -197,7 +197,7 @@
           element.parent().parent().siblings('.info-event').css({'top':'0%'});
           element.parent().parent().css({'opacity':'0'});
           $('body, html').animate({
-            scrollTop : position - 50
+            scrollTop : position - 250
           }, 1000, function(){
             element.parent().parent().siblings('.info-event').css({'position': 'relative'});
             element.parent().parent().css({'display' : 'none'});
@@ -205,11 +205,11 @@
           });
         });
         $('.close-view').click(function(){
-          $('.info-event').css({'position': 'absolute'});
-          $('.info-event').css({'top':'-150%'});
-          $('.container-gen').css({'opacity':'1'});
-          $('.container-gen').css({'display':'block'});
-          $('.container-carrusel-grid').css({'overflow':'hidden'});
+          $(this).parent().parent().parent().parent().css({'position': 'absolute'});
+          $(this).parent().parent().parent().parent().css({'top':'-150%'});
+          $(this).parent().parent().parent().parent().siblings('.container-gen').css({'opacity':'1'});
+          $(this).parent().parent().parent().parent().siblings('.container-gen').css({'display':'block'});
+          $(this).parent().parent().parent().parent().parent().css({'overflow':'hidden'});
         });
       }
     }
@@ -256,33 +256,79 @@
           var h_event = $('.info-event .gallery .preview').height();
           $('.info-event .gallery .list-gallery-images').css({'height':h_event+'px'});
           $('body, html').animate({
-            scrollTop : position - 50
+            scrollTop : position - 250
           }, 1000, function(){
             element.parent().parent().siblings('.info-event').css({'position': 'relative'});
             element.parent().parent().css({'display' : 'none'});
           });
         });
         $('.close-view').click(function(){
-          $('.info-event').css({'position': 'absolute'});
-          $('.info-event').css({'top':'-150%'});
-          $('.container-gen').css({'opacity':'1'});
-          $('.container-gen').css({'display':'block'});
-          $('.container-carrusel-grid').css({'overflow':'hidden'});
+          $(this).parent().parent().parent().parent().css({'position': 'absolute'});
+          $(this).parent().parent().parent().parent().css({'top':'-150%'});
+          $(this).parent().parent().parent().parent().siblings('.container-gen').css({'opacity':'1'});
+          $(this).parent().parent().parent().parent().siblings('.container-gen').css({'display':'block'});
+          $(this).parent().parent().parent().parent().parent().css({'overflow':'hidden'});
         });
         $('.gotopicon').on('mouseover', function(){
           var h_ul_gallery = $('.list-gallery-images ul').height();
           var position = parseInt($('.list-gallery-images ul').css('margin-top').replace(/[^-\d\.]/g, ''));
-          $('.list-gallery-images ul').css({'margin-top':(position+150)+'px'});
+          if(position<0)
+            $('.list-gallery-images ul').css({'margin-top':(position+150)+'px'});
         });
         $('.godownicon').on('mouseover', function(){
           var h_ul_gallery = $('.list-gallery-images ul').height();
+          var h_event = $('.info-event .gallery .preview').height();
           var position = parseInt($('.list-gallery-images ul').css('margin-top').replace(/[^-\d\.]/g, ''));
-          $('.list-gallery-images ul').css({'margin-top':(position-150)+'px'});
+          if(((position*-1))<h_event)
+            $('.list-gallery-images ul').css({'margin-top':(position-150)+'px'});
         });
         $('.list-gallery-images ul li').click(function(){
           var getImage = $('img', this).attr('src');
           $('.preview img').attr('src',getImage);
         });
+      }
+    }
+  })
+
+  .directive('shopCarrusel', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/shop-carrusel.html',
+      controller: function($document){
+        $('.partial-container .container-shop').each(function(){
+          var tam = $('.container-carrusel .group-items', this).length;
+          $('.container-carrusel', this).css({'width': 100*tam+'%', 'margin-left':'0'});
+          $('.container-carrusel .group-items', this).css({'width': 100/tam+'%'});
+          if(tam<=1)
+            $('.displace', this).css({'display':'none'});
+        });
+        $('li .view-most').click(function(){
+          $(this).siblings('.information-bottle').css({'top':'0%'});
+        });
+        $('.close-info-bottle').click(function(){
+          $(this).parent().css({'top':'-100%'});
+        });
+        $('.container-gall-shop-list .vmr').click(function(){
+          var pos = parseInt($(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos'));
+          var elements = $(this).siblings('.carrusel-shop-container').children('.container-carrusel').children('.group-items').length;
+          if(pos<elements) $(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos', pos+1);
+          else $(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos', 1);
+          pos = parseInt($(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos'));
+          $(this).siblings('.carrusel-shop-container').children('.container-carrusel').css({'margin-left':"-"+((pos-1)*100)+"%"});
+        });
+
+
+        $('.container-gall-shop-list .vml').click(function(){
+          var pos = parseInt($(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos'));
+          var elements = $(this).siblings('.carrusel-shop-container').children('.container-carrusel').children('.group-items').length;
+          if(pos==1) $(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos', elements);
+          else $(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos', pos-1);
+          pos = parseInt($(this).siblings('.carrusel-shop-container').children('.container-carrusel').attr('data-pos'));
+          $(this).siblings('.carrusel-shop-container').children('.container-carrusel').css({'margin-left':"-"+((pos-1)*100)+"%"});
+        });
+
+
+
       }
     }
   })

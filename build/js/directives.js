@@ -269,6 +269,7 @@
           $('.container-gen').css({'display':'block'});
           $('.container-carrusel-grid').css({'overflow':'hidden'});
         });
+          var h_ul_gallery = $('.list-gallery-images ul').height();
         $('.gotopicon').on('mouseover', function(){
           var h_ul_gallery = $('.list-gallery-images ul').height();
           var position = parseInt($('.list-gallery-images ul').css('margin-top').replace(/[^-\d\.]/g, ''));
@@ -286,5 +287,34 @@
       }
     }
   })
+
+  .directive('sliderBottles', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/slider-bottles.html',
+      controller: function($document){
+
+        setTimeout(function(){
+          var swiper = new Swiper('.swiper-container', {
+              slidesPerView: 5,
+            	initialSlide: 2,
+              paginationClickable: true,
+            	centeredSlides: true,
+      	      keyboardControl: true,
+              nextButton: '.swiper-button-next',
+              prevButton: '.swiper-button-prev'
+          })
+          $('.swiper-button-prev').on('click', function(e){
+            swiper.swipePrev()
+          })
+          $('.swiper-button-next').on('click', function(e){
+            swiper.swipeNext()
+          });
+        },150);
+
+      }
+    }
+  })
+
 
 })();

@@ -1,0 +1,56 @@
+$time-slider = .4s
+
+//Slide standard
+.swiper-slide
+  text-align center
+  transition .3s
+.swiper-slide img
+  height 15vw
+  transform translateY(45%)
+  transition .3s
+//Slider Activo//
+.swiper-slide.swiper-slide-active
+  transition .3s
+  opacity .8
+.swiper-slide.swiper-slide-active img
+  height 20vw
+  transition $time-slider
+  background-color: yellow //cambiar color por imagen de fondo
+  transform: translateY(55%)
+
+//Slide anterior//
+.swiper-slide.swiper-slide-prev img
+  height 18vw
+  transition $time-slider
+  transform: translateY(50%)
+
+//Slider Siguiente//
+.swiper-slide.swiper-slide-next img
+  height 18vw
+  transition $time-slider
+  transform: translateY(55%)
+
+//wrapper general
+.slider-bottles-wrapper
+  width 100%
+  height auto
+  position relative
+
+.swiper-container
+  height 40vw
+  width 70%
+  margin: 0 auto;
+
+//titulo slider
+.slider-title
+  text-align center
+  position absolute
+  width 100%
+  left 0
+  top 5%
+
+//Flechas
+.swiper-button-next
+  background-image: url(./../src/images/sicon-02.png);
+.swiper-button-prev
+  background-image: url(./../src/images/sicon-01.png);

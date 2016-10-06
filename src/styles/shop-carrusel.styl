@@ -28,7 +28,7 @@
 
 .container-shop .container-title span
   margin-top: 60px;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   display: block;
 
 .shop li
@@ -179,6 +179,69 @@
   position: relative;
   width: 100%;
 
+.buyGuide
+  width: 100%;
+  text-align: center;
+  margin-bottom: 60px;
+  font-family: 'Gotham-Book';
+
+.buyGuide .openGuide
+  text-decoration: underline;
+
+.buyGuide .openGuide:hover
+  cursor: pointer;
+  opacity: .5;
+
+.container-guide, .container-guide ul
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+.container-guide ul li
+  width: 20%;
+  height: auto;
+
+.container-guide ul li div
+  width: 100%;
+  height: auto;
+
+.container-guide ul li div.step
+  font-family: 'Gotham-Bold';
+  font-size: 3em;
+  text-align: center;
+  border-bottom: 2px solid #000;
+
+.container-guide ul li div.step-info
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  margin-top: 20px;
+
+div.step-info .image-steep
+  width: 20%;
+
+div.step-info .image-steep img
+  width: 100%;
+  height: auto;
+
+div.step-info .descr-steep
+  width: 70%;
+  height: auto;
+  font-family: 'Gotham-Book';
+  font-size: 1em;
+  text-align: left;
+  line-height: 1.2em;
+
 @media(max-width: 1680px)
   .container-shop
     width: 70%;
@@ -200,7 +263,20 @@
   .container-shop
     width: 90%;
 
+  .container-guide ul li
+    width: 25%;
+    height: auto;
+
 @media(max-width: 640px)
+
+  .container-guide ul li
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
   .container-shop
     width: 70%;
     font-size: 1.3em;
@@ -219,6 +295,15 @@
     right: -5%;
 
 @media(max-width: 480px)
+
+  .container-guide ul li
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
   .container-shop
     width: 50%;
     font-size: 1.3em;

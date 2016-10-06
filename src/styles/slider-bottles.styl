@@ -5,30 +5,22 @@ $time-slider = .4s
   text-align center
   transition .3s
 .swiper-slide img
-  height 15vw
-  transform translateY(45%)
-  transition .3s
+
 //Slider Activo//
 .swiper-slide.swiper-slide-active
   transition .3s
-  opacity .8
 .swiper-slide.swiper-slide-active img
-  height 20vw
+  height 22vw
   transition $time-slider
   background-color: yellow //cambiar color por imagen de fondo
-  transform: translateY(55%)
+  transform: translateY(90%)
 
-//Slide anterior//
-.swiper-slide.swiper-slide-prev img
+
+//Slide Siguiente y Slide Anterior
+.swiper-slide.swiper-slide-next img,.swiper-slide.swiper-slide-prev img,.swiper-slide img
   height 18vw
   transition $time-slider
-  transform: translateY(50%)
-
-//Slider Siguiente//
-.swiper-slide.swiper-slide-next img
-  height 18vw
-  transition $time-slider
-  transform: translateY(55%)
+  transform: translateY(110%)
 
 //wrapper general
 .slider-bottles-wrapper
@@ -37,9 +29,24 @@ $time-slider = .4s
   position relative
 
 .swiper-container
-  height 40vw
-  width 70%
-  margin: 0 auto;
+  height 50vw
+  width 75%
+  margin: 0 auto
+
+span.name-bottle
+  position absolute
+  color #fff
+  bottom 20%
+  left 0
+  width 100%
+  text-align center
+  transition .3s
+
+.swiper-slide.swiper-slide-active span.name-bottle
+  bottom 10% !important
+
+.swiper-slide.swiper-slide-active span.name-bottle span.underline-white
+  border-bottom 1px solid #fff
 
 //titulo slider
 .slider-title
@@ -49,8 +56,56 @@ $time-slider = .4s
   left 0
   top 5%
 
+span.name-bottle
+  font-size 16px
+
 //Flechas
 .swiper-button-next
   background-image: url(./../src/images/sicon-02.png);
+  border: 5px solid red
 .swiper-button-prev
   background-image: url(./../src/images/sicon-01.png);
+  border: 5px solid red
+
+@media(max-width:1024px)
+  .swiper-container
+    width 80%
+
+@media(max-width:768px)
+  .swiper-container
+    height 90vw
+    width 85%
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 35vw
+
+  .swiper-slide.swiper-slide-active span.name-bottle
+    bottom: 15%
+
+  .swiper-slide.swiper-slide-prev img, .swiper-slide.swiper-slide-next img
+    transform translateY(75%)
+
+  .swiper-slide.swiper-slide-active img
+    transform translateY(100%)
+
+  span.name-bottle
+    font-size 18px
+
+@media(max-width:640px)
+  .swiper-container
+    height 100vw
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 45vw
+    transform translateY(65%)
+
+  .swiper-slide.swiper-slide-active span.name-bottle
+    bottom: 20%;
+
+@media(max-width:480px)
+  .swiper-container
+    height 100vw
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 55vw
+    transform translateY(45%)
+
+  .swiper-slide.swiper-slide-active span.name-bottle
+    bottom: 10%;

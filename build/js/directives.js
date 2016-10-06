@@ -302,7 +302,17 @@
             	centeredSlides: true,
       	      keyboardControl: true,
               nextButton: '.swiper-button-next',
-              prevButton: '.swiper-button-prev'
+              prevButton: '.swiper-button-prev',
+              breakpoints: {
+                 1024: {
+                   slidesPerView: 3,
+                   spaceBetweenSlides: 10
+                 },
+                 640: {
+                   slidesPerView: 1,
+                   spaceBetweenSlides: 10
+                 }
+               }
           })
           $('.swiper-button-prev').on('click', function(e){
             swiper.swipePrev()

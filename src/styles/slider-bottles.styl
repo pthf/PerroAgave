@@ -5,27 +5,19 @@ $time-slider = .4s
   text-align center
   transition .3s
 .swiper-slide img
-  height 15vw
-  transform translateY(45%)
-  transition .3s
+
 //Slider Activo//
 .swiper-slide.swiper-slide-active
   transition .3s
-  opacity .8
 .swiper-slide.swiper-slide-active img
-  height 20vw
+  height 22vw
   transition $time-slider
   background-color: yellow //cambiar color por imagen de fondo
   transform: translateY(55%)
 
-//Slide anterior//
-.swiper-slide.swiper-slide-prev img
-  height 18vw
-  transition $time-slider
-  transform: translateY(50%)
 
-//Slider Siguiente//
-.swiper-slide.swiper-slide-next img
+//Slide Siguiente y Slide Anterior
+.swiper-slide.swiper-slide-next img,.swiper-slide.swiper-slide-prev img,.swiper-slide img
   height 18vw
   transition $time-slider
   transform: translateY(55%)
@@ -38,7 +30,7 @@ $time-slider = .4s
 
 .swiper-container
   height 40vw
-  width 70%
+  width 65%
   margin: 0 auto;
 
 //titulo slider
@@ -54,3 +46,25 @@ $time-slider = .4s
   background-image: url(./../src/images/sicon-02.png);
 .swiper-button-prev
   background-image: url(./../src/images/sicon-01.png);
+
+@media(max-width:768px)
+  .swiper-container
+    height 90vw
+    width 75%
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 35vw
+    transform translateY(80%)
+
+@media(max-width:640px)
+  .swiper-container
+    height 100vw
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 45vw
+    transform translateY(65%)
+
+@media(max-width:480px)
+  .swiper-container
+    height 100vw
+  .swiper-slide img, .swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img,.swiper-slide.swiper-slide-active img
+    height 55vw
+    transform translateY(45%)

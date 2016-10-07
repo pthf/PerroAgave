@@ -414,4 +414,11 @@
     }
   })
 
+  .directive('popUpInfo', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/pop-up-info.html'
+    }
+  })
+
 })();

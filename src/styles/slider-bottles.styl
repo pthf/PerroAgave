@@ -4,7 +4,6 @@ $time-slider = .4s
 .swiper-slide
   text-align center
   transition .3s
-.swiper-slide img
 
 //Slider Activo//
 .swiper-slide.swiper-slide-active
@@ -12,7 +11,7 @@ $time-slider = .4s
 .swiper-slide.swiper-slide-active img
   height 22vw
   transition $time-slider
-  background-color: yellow //cambiar color por imagen de fondo
+  background-image: url(./../src/images/brillo.png);
   transform: translateY(90%)
 
 
@@ -22,6 +21,9 @@ $time-slider = .4s
   transition $time-slider
   transform: translateY(110%)
 
+.swiper-slide.swiper-slide-next img, .swiper-slide.swiper-slide-prev img
+  -webkit-filter: grayscale(100%)
+  filter: grayscale(100%)
 //wrapper general
 .slider-bottles-wrapper
   width 100%

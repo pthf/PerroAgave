@@ -7,12 +7,18 @@
 	app.config(['$routeProvider', '$locationProvider' , function($routeProvider, $locationProvider){
 		$routeProvider
 			.when('/', {
-				templateUrl: './views/home.html',
-        controller: 'menuNavController'
+				templateUrl: './views/home.html'
+			})
+			.when('/login', {
+				templateUrl: './views/login.html',
+        controller: 'formloginregisterController'
 			})
 			.otherwise({
 				redirectTo: '/'
 			});
 			// $locationProvider.html5Mode(true);
+	}]);
+	app.run(['$rootScope', function($rootScope){
+		$rootScope.open = false;
 	}]);
 })();

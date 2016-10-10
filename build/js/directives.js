@@ -421,4 +421,31 @@
     }
   })
 
+  .directive('formLogin', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/form-login.html',
+      controller: function($document){
+
+      }
+    }
+  })
+
+  .directive('formRegister', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/form-register.html',
+      controller: function($document){
+
+      }
+    }
+  })
+
+  .directive('introSite', function(){
+    return {
+      restrict: 'E',
+      templateUrl: './partials/intro-site.html'
+    }
+  })
+
 })();
